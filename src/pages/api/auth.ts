@@ -11,8 +11,6 @@ export const post: APIRoute = async(context) => {
   // pass 为用户输入的密码
   let inputPass = body.inputPass
   const localPass = body.localPass
-
-
   // console.log(inputPass)
   // console.log(localPass)
 
@@ -25,7 +23,6 @@ export const post: APIRoute = async(context) => {
   if (localPass)
     passHash = localPass
 
-    // console.log(passHash)
   return new Response(JSON.stringify({
     code: (!realPassword || passHash === realPasswordHash) ? 0 : -1,
     password: passHash,
