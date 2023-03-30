@@ -10,8 +10,6 @@ const httpsProxy = import.meta.env.HTTPS_PROXY
 const baseUrl = (import.meta.env.OPENAI_API_BASE_URL || 'https://api.openai.com').trim().replace(/\/$/, '')
 let sitePassword = import.meta.env.SITE_PASSWORD
 
-sitePassword = await encryptPassword(sitePassword)
-
 export const post: APIRoute = async(context) => {
   const body = await context.request.json()
   const { sign, time, messages, pass } = body
@@ -22,6 +20,7 @@ export const post: APIRoute = async(context) => {
       },
     }), { status: 400 })
   }
+  sitePassword = await encryptPassword(sitePassword)
   if (sitePassword && sitePassword !== pass) {
     return new Response(JSON.stringify({
       error: {
