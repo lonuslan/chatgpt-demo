@@ -37,15 +37,6 @@ export const verifySignature = async(payload: AuthPayload, sign: string) => {
 export async function encryptPassword(password: string) {
   if (!password)
     throw new Error('Password cannot be empty.')
-
-  // 将secret_key作为加密的salt
-  const salt = import.meta.env.SECRET_KEY
-  // const hash = crypto.createHmac('sha256', salt)
-  //   .update(password)
-  //   .digest('hex')
-  // return hash
-  // const hash = CryptoJS.SHA256(password + salt)
-  // return hash.toString(CryptoJS.enc.Hex)
   return await digestMessage(password)
 }
 
