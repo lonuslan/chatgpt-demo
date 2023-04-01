@@ -17,7 +17,7 @@
     --hope-colors-background: #f7f8fa;
 }
 body {
-    background-color: var(--hope-colors-background);
+    /* background-color: var(--hope-colors-background); */
     color: var(--hope-colors-neutral12);
     font-family: inherit;
     line-height: inherit;
@@ -491,4 +491,12 @@ button, input, textarea, select, optgroup {
 button, input, textarea, select, optgroup {
     font-family: inherit;
     font-size: 100%;
+}
+
+main {
+    position: relative;
+    top: 6rem;
+    border-radius: 2rem;
+    background-color: white;
+    opacity: 0.9;
 }
