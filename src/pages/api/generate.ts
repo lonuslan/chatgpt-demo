@@ -21,9 +21,6 @@ export const post: APIRoute = async(context) => {
     }), { status: 400 })
   }
   const definePassword = await (await encryptPassword(sitePassword)).toString()
-  console.log('definePassword : ' + definePassword)
-  console.log('pass : ' + pass)
-  console.log('definePassword === pass : ' + (sitePassword !== pass))
   if (definePassword && definePassword !== pass) {
     return new Response(JSON.stringify({
       error: {
